@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D27F8B7D93B660C47A6B2F4B /* Pods_Twitter_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D54FB660F4A653EC077B32 /* Pods_Twitter_Clone.framework */; };
+		DE4B61D126677C4900431C46 /* TweetTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B61D026677C4900431C46 /* TweetTableHeaderView.swift */; };
 		DE50C57C2664319800775AC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50C57B2664319800775AC3 /* AppDelegate.swift */; };
 		DE50C57E2664319800775AC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50C57D2664319800775AC3 /* SceneDelegate.swift */; };
 		DE50C5802664319800775AC3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50C57F2664319800775AC3 /* RootViewController.swift */; };
@@ -23,11 +24,20 @@
 		DE50C5C126644FC900775AC3 /* IdentifiableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50C5C026644FC900775AC3 /* IdentifiableProtocol.swift */; };
 		DE50C5C52664599200775AC3 /* HomeFeedTableCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50C5C42664599200775AC3 /* HomeFeedTableCellAction.swift */; };
 		DE50C5C9266459B100775AC3 /* HomeFeedTableCellAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE50C5C8266459B100775AC3 /* HomeFeedTableCellAction.xib */; };
+		DE58C33D266544EA00B7C99C /* MoreDropDownPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE58C33C266544EA00B7C99C /* MoreDropDownPanelViewController.swift */; };
+		DE58C347266548ED00B7C99C /* PanelTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE58C345266548ED00B7C99C /* PanelTableCell.swift */; };
+		DE58C348266548ED00B7C99C /* PanelTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE58C346266548ED00B7C99C /* PanelTableCell.xib */; };
+		DE58C34C26655B6900B7C99C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE58C34B26655B6900B7C99C /* RoundedButton.swift */; };
+		DE6F94872666A8470086AA37 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F94862666A8470086AA37 /* TweetViewController.swift */; };
+		DE6F948A2666A8A00086AA37 /* TweetScreens.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE6F94892666A8A00086AA37 /* TweetScreens.storyboard */; };
+		DE6F94912666B06C0086AA37 /* TweetTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE6F94902666B06C0086AA37 /* TweetTableHeaderView.xib */; };
+		DE6F94942666B8C70086AA37 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F94932666B8C70086AA37 /* Divider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		50D54FB660F4A653EC077B32 /* Pods_Twitter_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8085FB5C6F75A1E99D8F252C /* Pods-Twitter Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter Clone.debug.xcconfig"; path = "Target Support Files/Pods-Twitter Clone/Pods-Twitter Clone.debug.xcconfig"; sourceTree = "<group>"; };
+		DE4B61D026677C4900431C46 /* TweetTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableHeaderView.swift; sourceTree = "<group>"; };
 		DE50C5782664319800775AC3 /* Twitter Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE50C57B2664319800775AC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE50C57D2664319800775AC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +55,14 @@
 		DE50C5C026644FC900775AC3 /* IdentifiableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableProtocol.swift; sourceTree = "<group>"; };
 		DE50C5C42664599200775AC3 /* HomeFeedTableCellAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedTableCellAction.swift; sourceTree = "<group>"; };
 		DE50C5C8266459B100775AC3 /* HomeFeedTableCellAction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeFeedTableCellAction.xib; sourceTree = "<group>"; };
+		DE58C33C266544EA00B7C99C /* MoreDropDownPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDropDownPanelViewController.swift; sourceTree = "<group>"; };
+		DE58C345266548ED00B7C99C /* PanelTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelTableCell.swift; sourceTree = "<group>"; };
+		DE58C346266548ED00B7C99C /* PanelTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PanelTableCell.xib; sourceTree = "<group>"; };
+		DE58C34B26655B6900B7C99C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		DE6F94862666A8470086AA37 /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
+		DE6F94892666A8A00086AA37 /* TweetScreens.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TweetScreens.storyboard; sourceTree = "<group>"; };
+		DE6F94902666B06C0086AA37 /* TweetTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetTableHeaderView.xib; sourceTree = "<group>"; };
+		DE6F94932666B8C70086AA37 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		F77514C5F98EDBCDF2042ED5 /* Pods-Twitter Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter Clone.release.xcconfig"; path = "Target Support Files/Pods-Twitter Clone/Pods-Twitter Clone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +167,8 @@
 		DE50C59A266432A200775AC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE6F948C2666B0340086AA37 /* TweetScreens */,
+				DE58C34A26655B5500B7C99C /* Componants */,
 				DE50C5B726644F6C00775AC3 /* Cells */,
 				DE50C59C266432CC00775AC3 /* Storyboards */,
 			);
@@ -168,6 +188,7 @@
 				DE50C5812664319800775AC3 /* Main.storyboard */,
 				DE50C5862664319900775AC3 /* LaunchScreen.storyboard */,
 				DE50C5B426644E8700775AC3 /* HomeScreen.storyboard */,
+				DE6F94892666A8A00086AA37 /* TweetScreens.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -175,7 +196,7 @@
 		DE50C5AE26643ADF00775AC3 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				DE50C5B026643B0700775AC3 /* HomeViewController.swift */,
+				DE58C34F2665602100B7C99C /* Home Feed */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -190,6 +211,7 @@
 		DE50C5B726644F6C00775AC3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DE58C33F266548B000B7C99C /* MoreDropDownPanelTableCell */,
 				DE50C5C32664594800775AC3 /* CustomViews */,
 				DE50C5B826644F7300775AC3 /* HomeFeelTableCell */,
 			);
@@ -220,6 +242,51 @@
 				DE50C5C8266459B100775AC3 /* HomeFeedTableCellAction.xib */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		DE58C33F266548B000B7C99C /* MoreDropDownPanelTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				DE58C345266548ED00B7C99C /* PanelTableCell.swift */,
+				DE58C346266548ED00B7C99C /* PanelTableCell.xib */,
+			);
+			path = MoreDropDownPanelTableCell;
+			sourceTree = "<group>";
+		};
+		DE58C34A26655B5500B7C99C /* Componants */ = {
+			isa = PBXGroup;
+			children = (
+				DE58C34B26655B6900B7C99C /* RoundedButton.swift */,
+				DE6F94932666B8C70086AA37 /* Divider.swift */,
+			);
+			path = Componants;
+			sourceTree = "<group>";
+		};
+		DE58C34F2665602100B7C99C /* Home Feed */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F94852666A8140086AA37 /* Tweet */,
+				DE50C5B026643B0700775AC3 /* HomeViewController.swift */,
+				DE58C33C266544EA00B7C99C /* MoreDropDownPanelViewController.swift */,
+			);
+			path = "Home Feed";
+			sourceTree = "<group>";
+		};
+		DE6F94852666A8140086AA37 /* Tweet */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F94862666A8470086AA37 /* TweetViewController.swift */,
+			);
+			path = Tweet;
+			sourceTree = "<group>";
+		};
+		DE6F948C2666B0340086AA37 /* TweetScreens */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F94902666B06C0086AA37 /* TweetTableHeaderView.xib */,
+				DE4B61D026677C4900431C46 /* TweetTableHeaderView.swift */,
+			);
+			path = TweetScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,10 +350,13 @@
 			files = (
 				DE50C5882664319900775AC3 /* LaunchScreen.storyboard in Resources */,
 				DE50C5BC26644F9800775AC3 /* HomeFeedTableCell.xib in Resources */,
+				DE6F948A2666A8A00086AA37 /* TweetScreens.storyboard in Resources */,
 				DE50C5B526644E8700775AC3 /* HomeScreen.storyboard in Resources */,
 				DE50C5852664319900775AC3 /* Assets.xcassets in Resources */,
 				DE50C5832664319800775AC3 /* Main.storyboard in Resources */,
 				DE50C5C9266459B100775AC3 /* HomeFeedTableCellAction.xib in Resources */,
+				DE6F94912666B06C0086AA37 /* TweetTableHeaderView.xib in Resources */,
+				DE58C348266548ED00B7C99C /* PanelTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,15 +409,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE58C347266548ED00B7C99C /* PanelTableCell.swift in Sources */,
 				DE50C5AC2664364600775AC3 /* Constants.swift in Sources */,
 				DE50C5802664319800775AC3 /* RootViewController.swift in Sources */,
 				DE50C57C2664319800775AC3 /* AppDelegate.swift in Sources */,
 				DE50C5BB26644F9800775AC3 /* HomeFeedTableCell.swift in Sources */,
 				DE50C57E2664319800775AC3 /* SceneDelegate.swift in Sources */,
 				DE50C5A92664363A00775AC3 /* Extensions.swift in Sources */,
+				DE58C34C26655B6900B7C99C /* RoundedButton.swift in Sources */,
 				DE50C5B126643B0700775AC3 /* HomeViewController.swift in Sources */,
 				DE50C5C126644FC900775AC3 /* IdentifiableProtocol.swift in Sources */,
+				DE4B61D126677C4900431C46 /* TweetTableHeaderView.swift in Sources */,
+				DE6F94872666A8470086AA37 /* TweetViewController.swift in Sources */,
+				DE6F94942666B8C70086AA37 /* Divider.swift in Sources */,
 				DE50C5C52664599200775AC3 /* HomeFeedTableCellAction.swift in Sources */,
+				DE58C33D266544EA00B7C99C /* MoreDropDownPanelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,12 +11,12 @@ class RootViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = K.Colors.accentColor
+        view.backgroundColor = .accentColor
         
         tabBar.tintColor = .blueColor
         tabBar.isTranslucent = false
         
-        tabBar.barTintColor = K.Colors.accentColor
+        tabBar.barTintColor = .accentColor
     }
     
     private func configure() {

@@ -8,5 +8,6 @@ target 'Twitter Clone' do
   # Pods for Twitter Clone
   pod 'FontAwesomeKit', '~> 2.2.0'
   pod 'SDWebImage'
+  pod 'FloatingPanel'
 
 end

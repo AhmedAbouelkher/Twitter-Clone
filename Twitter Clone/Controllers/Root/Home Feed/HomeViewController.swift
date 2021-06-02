@@ -7,11 +7,12 @@
 
 import UIKit
 import FontAwesomeKit
+import FloatingPanel
 
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableVeiw: UITableView!
-
+    
     
     //MARK:- Life Cycle
     
@@ -28,7 +29,7 @@ class HomeViewController: UIViewController {
         //MARK:- TabBar Item
         let tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house.fill"), tag: 0)
         tabBarItem.imageInsets = UIEdgeInsets(top: 9, left: 0, bottom: -9, right: 0)
-        tabBarItem.badgeColor = K.Colors.blueColor
+        tabBarItem.badgeColor = .blueColor
         
         navigationController?.tabBarItem = tabBarItem
         
@@ -44,14 +45,14 @@ class HomeViewController: UIViewController {
         
         
         //MARK:- CenterTilte
-        let logoImageView = UIImageView(image: FAKFontAwesome.twitterIcon(withSize: 30)?.getImage(with: 30, color: K.Colors.blueColor))
+        let logoImageView = UIImageView(image: FAKFontAwesome.twitterIcon(withSize: 30)?.getImage(with: 30, color: .blueColor))
         logoImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         
         navigationItem.titleView = logoImageView
         
         
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = K.Colors.accentColor
+        navigationController?.navigationBar.barTintColor = .accentColor
         
         super.viewDidLoad()
     }
@@ -80,8 +81,55 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return HomeFeedTableCell.dequeue(from: tableView, forIndexPath: indexPath)
+        let cell =  HomeFeedTableCell.dequeue(from: tableView, forIndexPath: indexPath)
+        cell.configure(with: HomeFeedTableCellViewModel(
+            displayName: "Ahmed Mahmoud",
+            userName: "ahmedOffial",
+            avatar: K.Urls.personalImage,
+            comments: "50K", retwittes: "12.6K", likes: "100",
+            content: "I'm thinking of doing a demo project to help me understand more iOS native implementations and concepts, with API calls and a usable UI/UX experiencِAny Suggestions?"
+        )
+        )
+        cell.delegate = self
+        return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let tweetVC = TweetViewController.storyboard()
+        
+        navigationController?.pushViewController(tweetVC, animated: true)
+    }
     
+}
+
+
+extension HomeViewController: HomeFeedTableCellDelegate, FloatingPanelControllerDelegate {
+    
+    
+    func didTapMoreDropDownButton(_ cell: HomeFeedTableCell, with viewModel: HomeFeedTableCellViewModel) {
+        let fpc = FloatingPanelController(delegate: self)
+        
+        let vc = MoreDropDownPanelViewController(with: viewModel)
+        
+        vc.dismissFloatingPanel = {
+            fpc.dismiss(animated: true, completion: nil)
+        }
+        
+        fpc.set(contentViewController: vc)
+        
+        fpc.surfaceView.appearance = MoreDropDownPanelViewController.panelAppearance()
+        fpc.layout = MoreDropDownPanelViewController.MyFloatingPanelLayout()
+        
+        
+        fpc.surfaceView.grabberHandleSize = .init(width: 44.0, height: 5.0)
+        
+        
+        fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
+        fpc.isRemovalInteractionEnabled = true
+        
+        
+        self.present(fpc, animated: true)
+    }
+
 }

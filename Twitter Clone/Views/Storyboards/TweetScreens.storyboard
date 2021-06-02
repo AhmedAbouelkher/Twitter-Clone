@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tweet View Controller-->
+        <scene sceneID="9g8-Vy-SXW">
+            <objects>
+                <viewController storyboardIdentifier="TweetViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rq0-hD-KaJ" customClass="TweetViewController" customModule="Twitter_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UCA-jT-0qS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TDY-ji-gn3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" name="accent_color"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7JN-87-VqT"/>
+                        <color key="backgroundColor" name="accent_color"/>
+                        <constraints>
+                            <constraint firstItem="7JN-87-VqT" firstAttribute="bottom" secondItem="TDY-ji-gn3" secondAttribute="bottom" id="EYF-9G-eFY"/>
+                            <constraint firstItem="7JN-87-VqT" firstAttribute="trailing" secondItem="TDY-ji-gn3" secondAttribute="trailing" id="UiY-51-qKT"/>
+                            <constraint firstItem="TDY-ji-gn3" firstAttribute="leading" secondItem="7JN-87-VqT" secondAttribute="leading" id="XiQ-IB-vmL"/>
+                            <constraint firstItem="TDY-ji-gn3" firstAttribute="top" secondItem="7JN-87-VqT" secondAttribute="top" id="npJ-YA-4q2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DI7-Ss-Gua">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="5Ep-m2-egr">
+                            <connections>
+                                <action selector="didTapBack:" destination="rq0-hD-KaJ" id="urx-Ov-nMp"/>
+                            </connections>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="3fz-01-AMh">
+                            <rect key="frame" x="207" y="22" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navgationBarTitleView" destination="3fz-01-AMh" id="OpA-2v-paz"/>
+                        <outlet property="tableView" destination="TDY-ji-gn3" id="GYM-Cj-TmR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EIi-C8-9Um" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281.15942028985512" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <namedColor name="accent_color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

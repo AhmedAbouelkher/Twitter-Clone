@@ -95,6 +95,52 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
+    
+    enum Anchor {
+        case top
+        case bottom
+        case leading
+        case trailing
+    }
+    
+    func anchor(to view: UIView,
+                top: Anchor?, leading: Anchor?, bottom: Anchor?, trailing: Anchor?,
+                padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        let topViewAnchor = view.topAnchor
+        let leadingViewAnchor = view.leadingAnchor
+        let bottomViewAnchor = view.bottomAnchor
+        let trailingViewAnchor = view.trailingAnchor
+        
+        var constraints = [NSLayoutConstraint]()
+        
+        if top != nil {
+            constraints.append(topAnchor.constraint(equalTo: topViewAnchor, constant: padding.top))
+        }
+        
+        if leading != nil {
+            constraints.append(leadingAnchor.constraint(equalTo: leadingViewAnchor, constant: padding.left))
+        }
+        
+        if bottom != nil {
+            constraints.append(bottomAnchor.constraint(equalTo: bottomViewAnchor, constant: -padding.bottom))
+        }
+        
+        if trailing != nil {
+            constraints.append(trailingAnchor.constraint(equalTo: trailingViewAnchor, constant: -padding.right))
+        }
+        
+        if size.width != 0 {
+            constraints.append(widthAnchor.constraint(equalToConstant: size.width))
+        }
+        
+        if size.height != 0 {
+            constraints.append(heightAnchor.constraint(equalToConstant: size.height))
+        }
+        
+        NSLayoutConstraint.activate(constraints)
+    }
 }
 
 extension FAKIcon {
@@ -106,6 +152,12 @@ extension FAKIcon {
     
     public func changeColor(with color: UIColor) {
         self.addAttribute(NSAttributedString.Key.foregroundColor.rawValue, value: color)
+    }
+    
+    public func getBlueAccentImage() -> UIImage {
+        changeColor(with: UIColor.darkBlueAccentColor!)
+        let size = CGFloat(iconFontSize)
+        return self.image(with: CGSize(width: size, height: size))
     }
 }
 

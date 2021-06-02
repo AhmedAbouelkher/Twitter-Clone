@@ -8,51 +8,120 @@
 import UIKit
 import SDWebImage
 
-class HomeFeedTableCell: UITableViewCell, IdentifiableCell {
+
+protocol HomeFeedTableCellDelegate: AnyObject {
+    func didTapMoreDropDownButton(_ cell: HomeFeedTableCell, with viewModel: HomeFeedTableCellViewModel)
+}
+
+struct HomeFeedTableCellViewModel {
+    let displayName: String
+    let userName: String
+    let avatar: URL?
+    let comments: String
+    let retwittes: String
+    let likes: String
+    let content: String
+}
+
+class HomeFeedTableCell: UITableViewCell, IdentifiableView {
     
     
-    @IBOutlet weak var avatarView: UIImageView!
-    @IBOutlet weak var displayNameLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var contentsLabel: UILabel!
-    @IBOutlet weak var actionsStackView: UIStackView!
-    @IBOutlet weak var moreDropDownButton: UIButton!
+    public weak var delegate: HomeFeedTableCellDelegate?
     
+    @IBOutlet private weak var avatarView: UIImageView!
+    @IBOutlet private weak var displayNameLabel: UILabel!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var contentsLabel: UILabel!
+    @IBOutlet private weak var actionsStackView: UIStackView!
+    @IBOutlet private weak var moreDropDownButton: UIButton!
     
+    private var model: HomeFeedTableCellViewModel!
+    
+    private var commentsAction: HomeFeedTableCellAction!
+    private var retwitteAction: HomeFeedTableCellAction!
+    private var loveAction: HomeFeedTableCellAction!
+    
+    //MARK:- Life Cycle
     override func awakeFromNib() {
-        avatarView.sd_setImage(with: K.Urls.personalImage, completed: nil)
-        avatarView.makeCirculer()
         
-        contentsLabel.text = "I'm thinking of doing a demo project to help me understand more iOS native implementations and concepts, with API calls and a usable UI/UX experiencِAny Suggestions?"
+        commentsAction  = HomeFeedTableCellAction(frame: CGRect(x: 0, y: 0, width: 50, height: 25))
         
+        retwitteAction = HomeFeedTableCellAction(frame: CGRect(x: 0, y: 0, width: 50, height: 25))
         
-        let commentsAction = HomeFeedTableCellAction(frame: CGRect(x: 0, y: 0, width: 50, height: 25))
-        commentsAction.configure(with: "52.2K", icon: UIImage(systemName: "bubble.right"))
+        loveAction = HomeFeedTableCellAction(frame: CGRect(x: 0, y: 0, width: 50, height: 25))
         
-        let retwitteAction = HomeFeedTableCellAction(frame: CGRect(x: 0, y: 0, width: 50, height: 25))
-        retwitteAction.configure(with: "5,129", icon: UIImage(systemName: "arrow.2.squarepath"))
-        
-        let loveAction = HomeFeedTableCellAction(frame: CGRect(x: 0, y: 0, width: 50, height: 25))
-        loveAction.configure(with: "50", icon: UIImage(systemName: "heart"))
         
         [
             commentsAction,
             retwitteAction,
             loveAction,
-            
-        ].forEach { actionsStackView.addArrangedSubview($0) }
-        
+        ].forEach {
+            $0!.delegate = self
+            actionsStackView.addArrangedSubview($0!)
+        }
         
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarView.image = nil
+        displayNameLabel.text = nil
+        userNameLabel.text = nil
+        contentsLabel.text = nil
+        commentsAction.setLabel(with: nil)
+        retwitteAction.setLabel(with: nil)
+        loveAction.setLabel(with: nil)
+    }
     
-    typealias T = String
-    func configure(with model: String) {
+    
+    typealias T = HomeFeedTableCellViewModel
+    func configure(with model: HomeFeedTableCellViewModel) {
+        self.model = model
         
+        avatarView.sd_setImage(with: model.avatar, completed: nil)
+        avatarView.makeCirculer()
+        displayNameLabel.text = model.displayName
+        userNameLabel.text = "@\(model.userName)"
+        contentsLabel.text = model.content
         
+        commentsAction.configure(
+            with: model.comments,
+            icon: UIImage(systemName: "bubble.right"),
+            type: .comment
+        )
+        retwitteAction.configure(
+            with: model.retwittes,
+            icon: UIImage(systemName: "arrow.2.squarepath"),
+            type: .retweet
+        )
+        loveAction.configure(
+            with: model.likes,
+            icon: UIImage(systemName: "heart"),
+            type: .love
+        )
     }
     
     @IBAction private func didTapMoreDropDownButton() {
-        print(#function)
+        delegate?.didTapMoreDropDownButton(self, with: model)
     }
+}
+
+
+extension HomeFeedTableCell: HomeFeedTableCellActionDelgate {
+    
+    func didTapAction(_ action: HomeFeedTableCellAction, with type: HomeFeedTableCellActionType) {
+        switch type {
+        
+        case .comment:
+            break
+        case .retweet:
+            break
+        case .love:
+            action.setIcon(with: UIImage(systemName: "suit.heart.fill"), color: .systemRed)
+        case .none:
+            break
+        }
+    }
+    
+    
 }
